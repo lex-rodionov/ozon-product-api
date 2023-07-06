@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+  db_psql:
+    image: postgres:12
+    container_name: product_container
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=product_db
