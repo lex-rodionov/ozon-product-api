@@ -1,15 +1,13 @@
 import express from 'express';
-import dotenv from 'dotenv';
 
-dotenv.config();
+import config from '../config/index.js';
+import productRouter from './product/product.controller.js';
 
-const PORT = process.env.APP_PORT || 8000;
 const app = express();
+const { port } = config.server;
 
-app.listen(PORT, () => {
-  console.log(`Server started on port: ${PORT}`);
-});
-
-app.get('/', async (req, res) => {
-  res.send({data: 'Hello World!'});
+app.use(express.json());
+app.use('/product', productRouter);
+app.listen(port, () => {
+  console.log(`Server started on port: ${port}`);
 });
