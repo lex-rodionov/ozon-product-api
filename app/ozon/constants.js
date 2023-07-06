@@ -1,0 +1,1 @@
+export const OZON_HOST = 'https://api-seller.ozon.ru/v2/';
